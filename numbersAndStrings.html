@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">        <!-- link to stylesheet -->
+    </head>
+
+    <body>
+        <p id = "outputText1"></p>
+        <p id = "outputText2"></p>
+        <p id = "outputText3"></p>
+        <p id = "outputText4"></p>
+
+        <script>
+            var text1 = "4";                                                  /* string var: anything inside the "double quotes" */
+            var text2 = "5";                                                     /* we already know that the val's will be read as text cos its btwn "double quotes" */
+
+            var num1 = stringToNumber(text1);                                    /* create new var called num1 that takes the val stored in text1 as text and converts it to a number using the func stringToNumbers we created below. so our new var num1 will have the val of 4 as a number, whereas text1 has the val 4 as text */
+            var num2 = stringToNumber(text2); 
+
+            if(isNaN(num1) || isNaN(num2)){                                                                                     /* check if num1 or (|| means or) num2 are not numbers (NaN = not a number), then */
+                document.getElementById("outputText4").innerHTML = "You have not entered a valid number. Please try again.";    /* if these two val's are not numbers, then display this message */
+            }
+            else{                                                                                                               /* however, if these values ARE numbers, then display them in paragraph 4 and add them up */
+                document.getElementById("outputText4").innerHTML = num1 + num2;                                                 /* the "invalid" message will appr cos text1 was changed from 4 to four, so in turn num1 (which is = text1) is not a number as it will have the val of "four". if we change text1 back to 1, the val's will be added & display 9. if we change the plus sign to division (/) or multiplication (*) the answer should reflect on the browser */
+            }
+
+            document.getElementById("outputText1").innerHTML = text1 + text2;    /* this will reflect as a 4 and a 5 but with no spaces togeth: 45 i.e,. four-five, NOT fourty-five. i.o.f. JS to apply the plus func, the val's in var's should not be strings i.e. not btwn "quotation marks" */ 
+            document.getElementById("outputText2").innerHTML = text1 - text2;    /* when we use minus, JS correctly assumes & recog's (& converts) the val's in the var's as numbers cos there is no minus operator in JS lang. This is the same with division (/) and multiplication (*). output: -1 (i.e. 4-5 = -1). Only the plus sign is an operator where it has a concatenating function */
+            document.getElementById("outputText3").innerHTML = num1 - num2;      /* apply the same code but use the var's that's been converted to numbers by the stringToNumbers func */
+            /*document.getElementById("outputText4").innerHTML = num1 + num2;*/  /* cos JS recogs the var's as numbers, it will add the two numbers stored in the var's and not simp[ly concatenate them so that they're next to each other */ /* we cut this and pasted it in the if statement above where we check wheth the number var's are number */
+
+            function stringToNumber(text){                                       /*we create a func that will receive the "text" var/param and convert the string to a number */
+                return parseInt(text);                                           /* when the "text" var is received, parseInt will return the text as a number */
+            }
+
+
+        </script>
+
+    </body>
+</html>

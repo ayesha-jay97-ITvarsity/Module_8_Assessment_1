@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">        <!-- link to stylesheet -->
+    </head>
+
+    <body>
+        <p id = "outputText"></p>
+
+        <script>
+            var someVariable = 100;                                                 /* we declare a var outside of a func i.o.f. it to work both inside & outside of funcs i.e. global variable */
+            someFunction();                                                         /* after creating the func below (lines 13–16), we need to call it or else the func won't work. we call it in the preceding lines where we created the code (line 12) */
+
+            function someFunction() {                                               /* we've created a random func and w.i. this func we created a var & assigned that var a val of 100 */
+            /*    var someVariable = 100; */                                        /*if we want a var to apply both inside & outside of a func, we simply need to declare the var outside of the func. Thus, this line of code is moved to above (line 11) */1
+            /*  document.getElementById("outputText").innerHTML = someVariable;*/   /* specify where we want to apply our func in our html doc. if we move this line outside of the func {}, the var inside the func will not display, as the var was created inside the func, thus the var cannot be called outside of the func */
+            document.getElementById("outputText").innerHTML = someVariable;         /* if we specify where our func must apply in out html doc & our var's are speci'd outside of the func, then func will work */
+        }
+
+        /*  document.getElementById("outputText").innerHTML = someVariable; */      /* if the var created inside the func is called to appr outside of the func (ths line) then the result will shoot blanks & also vscode itself tells us that there is an error in our JS code */
+
+        </script>
+    </body>
+</html>

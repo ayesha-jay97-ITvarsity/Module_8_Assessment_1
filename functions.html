@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">        <!-- link to stylesheet -->
+    </head>
+
+    <body>
+        <!-- add html content i.o.f. our JS to work -->
+        <h1 onclick = "innerHTML = 'is not BS '"> JS </h1>                                  <!-- no id assigned, cos we'll be directly inserting the JS into this h1 tag (inline JS), so it's not needed. "onlick" is an inbuilt JS func that already exists. Result: if user clicks on the heading "JavaScript" then the output will be 'is not BS'. Note: can't use "double" & 'single' quotes simultaneously or else JS will crash -->
+        
+        <h2 id = "heading" onclick = "changeText()">JS</h2>                                 <!-- if you click on this h1 & it has the val of "JS", then change this h1 to "is not BS". However, if the val btwm h1 tags is "is not BS", then change the val back to "JS" when clicked on. "Note: the val btwn h1 tags must be EXACTLY the same as the comparison ==. So  if there is a space < or > the val btwn h1 tags, then there needs to be a space < & > the val being compared after the == signs, otherwise it will say it's not the same even though it is. once we've created our func in btwn our script tags, we can simply call the func in btwn our h/h2 tags where we want to apply the func. We also neeed to give our h2 an ID so that the func knows what "this" is referring to in the func. -->
+
+        <p id = "addition"></p>
+
+        <script>       
+            /* func to change text of elements with id "heading" */
+            function changeText(){                                                          /* we've created a func called "changeText". what the func does goes in btwn crly brackets {}. This func musty then be called in the h1/h2 tags when we want to apply them */
+                if(document.getElementById("heading").innerHTML == 'JS')                    /*  cos we removed our inline JS from btwn our h2 tags, the func is unable to recognise "this" element & therefore does not work. so we need to give our h2 an id, and then replace the all the "this"'s in the func with "document.getElementbyID" and specify the id i.o.t. apply the func */
+                    {document.getElementById("heading").innerHTML = 'is not BS'}            /* func "changeText": if elements with id "heading" contains "JS" when clicked on, change to "is not BS", and if not, change it to "JS" */
+                else{document.getElementById("heading").innerHTML = 'JS'}                   /* all JS that was in btwn our double inverted commas "" was cut from our h1/h2 tags and pasted in btwn these curly brackets {}, excluding the actual inverted  commas & thereafter modified to specify the id that the func should apply to  */
+            }
+
+            /* calling our addNumbers func that we've created below & assigning val's to num1 & num2 */
+            /* we specify where the returned val in func addNumbers should be displayed in our HTML doc in the same line where we allocated val's to the var's of our func*/
+            document.getElementById("addition").innerHTML = addNumbers(5, 7);               /* allocating val's to the param's num1 & num2 respectively in our func i.e. we're sending data to our func, which is then processed in our func. So what will be returned is not the funct or the values of the func, but the RESULT of the func on the given param val's */
+
+            /* creating paramater func that receives data & processes it */
+            function addNumbers(num1, num2) {                                               /* (Note: the received data goes in btwn the (brackets) after the func name i.e. addNumbers(num1, num2) where addNumbers is the function, an nunm1 and num12 is the data it receives (i.e. the parameters/variables) and processes as specifiewd in the func btwn curly brackes {}. So whenever this func is called, it needs to be sent the specified param's num1 & num2*/
+            /*  document.getElementById("addition").innerHTML = num1 + num2;  */            /* we want the func to take the val's stored in num1 & num2 and add them together */
+                return num1 + num2;                                                         /* we modify the func so that it will return proc'd data so that it can be used elsewhere. i.o.t. do so, we first remove the current func (line 28) & replace it with the "return" func, which takes the vals stored in num1 (5) & num 2 (7) & then SENDS BACK (i.e. returns) the answer val to the caller. This val is not reflected on the site, as it simply returns the val to the caller. The reas this does not reflect on the site is cos we did not specify WHERE the returned val should be displayed with "document.getElementByID.innerHTML" as we did in the line that we removed (28) */
+            } 
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">        <!-- link to stylesheet -->
+    </head>
+
+    <body>
+        <label for = "weather"> What's the weather like? </label>             <!-- create label FOR element with the "weather" id i.e. the select/switch box in next line -->
+        <select id = "weather">                                               <!-- select box created for the label where user can choose from the following options in a drop-down menu list -->
+            <option value = "sunny">Sunny</option>                            <!-- each option is given a value based on the weather option displayed-->
+            <option value = "windy">Windy</option>
+            <option value = "rainy">Rainy</option>
+            <option value = "snowy">Snowy</option>
+            <option value = "cloudy">Cloudy</option>
+        </select>
+
+        <a href = "#" onclick = "btnPressed()">GO!</a>                        <!-- dummy hyerplink for the user to click on after they've sel'd a weath opt from the drop down menu. we call the func created below to apply it to the hyperlink when it is clicked on -->
+
+        <p id = "outputText">Weather advice: </p>                             <!-- a para that will appr after the user sel's the "go" hyperlink. this is where we will apply our JS funcs-->
+
+        <script>
+            /* create func based on the opt sel'd */
+            function btnPressed(){                                                      /* there is no text input, so we will not include param's btwn the (brackets) */
+                var weatherSelected = document.getElementById("weather").value;         /* we create a var called "weatherSelected", the val of which will be the weath opt chosen by the user, which is received by the element with the "weather" id */
+                var advice;                                                             /* create "advice" var. this is where we will store the advice that the system will give to the user based on their selection */
+
+                switch(weatherSelected){                                                        /* we put the var that the switch statement works with to in btwn (brackets) */
+                    case "sunny":                                                               /* if the user sel's the case with the val "sunny", then give the following advice */ 
+                        advice = "Wear sunglasses and apply sunscreen."                         /* the advice given for a specif/sel'd case */
+                        break;                                                                  /* if the case above applies, then the func is instruct'd to jump to the end of the switch statement, and not apply the other case options */
+                    case "windy":
+                        advice = "Wear a jacket.";
+                        break;
+                    case "rainy":
+                        advice = "Wear a raincoat and carry an umbrella.";
+                        break;
+                    case "snowy":
+                        advice = "Dress warmly.";
+                        break;
+                    case "cloudy":
+                        advice = "Carry a jacket as it might rain.";
+                        break;           
+                }
+                document.getElementById("outputText").innerHTML = "Weather advice: " + advice;  /* specify where the output of the switch func apprs i.e. by the element with the "outputText" id, which will be "weather advice" concatenated with the advice stored in the sel'd case var. Rememeber that the text in JS will replace any text in the actual element*/
+            }
+
+        </script>
+    </body>
+</html>

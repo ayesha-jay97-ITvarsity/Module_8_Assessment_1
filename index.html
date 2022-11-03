@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">        <!-- link to stylesheet -->
+    </head>
+
+    <body>
+        <h1 id = "heading1"></h1>                                                             <!-- give heading & paragraph an id, which is nece for js coding -->
+        <p id = "paragraph1"></p>                                                             <!-- once we remove the text "Hello" and "Paragraph" btwn the h1 & p tags, it will still have text in btwn but as prescribed btwn the script tags -->
+        <p id = "paragraph2"></p> 
+        <p id = "paragraph3"></p> 
+        <p id = "paragraph4"></p> 
+        <p id = "paragraph5"></p>
+        <p id = "paragraph6"></p>
+        <p id = "paragraph7"></p>
+        <p id = "paragraph8"></p>
+        <p id = "paragraph9"></p>
+        <p id = "paragraph9"></p>
+        <p id = "paragraph10"></p>
+        <p id = "paragraph11"></p>
+        <p id = "paragraph12"></p>
+        <p id = "paragraph13"></p>
+
+        <!-- now we add our JS, which is always btwn script tags -->
+        <script>                                                                                        /* JS commenting (i.e. btwn <script> tags)  is same as css, in btwn an asterisk & slash sign. NB: JS needs to end with a semi-colon (;) i.o.t. work */
+            var text1;                                                                                  /* we call the variable (which can stores info) called text1. as yet, the var is empty & we've just created a var */
+            var text2;
+            var text3;
+
+            var numA = 7;                                                                               /* here we create an empty var intended for numerical values, labl'd A & B */
+            var numB = 10;                                                                              /* in the same line of code that we declare a variable, we can also store the info i.e. text/number when declaring the var */
+
+            text1 = "this is the text assigned to the variable with the name 'text1. We change the text of our variables in this section.";     /* we use the euqal = sign to assign a val (i.e. store info) into the empty var. needs to be in "quotation marks" cos its text */
+            text2 = "this is the info/text assigned to the variable with the name 'text2'. ";                                                   /* so whenever you call text1 or text2, the "text values" will be returned. Note the space after the fullstop, which is a good habit for when concatenating text variables. */
+            text3 = "this sentence is our 3rd variable we've created today.";
+
+            document.getElementById("heading1").innerHTML = ("This is JavaScript!");                    /*  this replaces the text from h1 (i.e. the element) that has the id "heading1" with the the text "This is JavaScript!". if remove the heading text "Hello" btwn the heading1 tag, it will still show "This is JS" */
+            document.getElementById("paragraph1").innerHTML = (5 + 6);                                  /* if we add a math equation w.o. "inverted commas" around the numbers, JS will return the answer to the math equation on the site rather than the actual val. this is cos JS recognises the values as a number. i.o.f. JS to recognise a number as a number, there can be no "inverted commas" around the values, or else it will be recognised as a text by JS instead */
+            document.getElementById("paragraph2").innerHTML = ("5 + 6");                                /* innterHTML func indicates that the html text of a specific elements needs to be whatever text/number that follows, as instructted by the element with a specific id */
+            document.getElementById("paragraph3").innerHTML = ("5" + 6);                                /* if only one value is in "inverted commas", then both values will be recognised as text, and it will simply display as "56" w.o. the + sign in btwn cos the plus + sign acts as an concatenator i.e. adding the 6 on next to the text "5" but also as text */
+            document.getElementById("paragraph4").innerHTML = ("JS is not " + "BS");                    /* the plus sign has the same func as concatenate in excel */                                                                                  
+            
+            /* testing if our text variables work */
+            document.getElementById("paragraph5").innerHTML = (text1);                                  /* here we replace the words of our text and simply call the variable with assigned text to it already it. note that we do not put the var in btwn "quotation marks" cos then it will simply reflect the text "text1" on the site.*/
+            document.getElementById("paragraph6").innerHTML = (text2 + text3);                          /* now we call our text2 var to assign its values/text and reflect on our site. we concatenate the two variables usiong the plus+ sign */
+
+            /* testing if our numerical variables work */
+            document.getElementById("paragraph7").innerHTML = (numA);                                   /* this will display the value 7, as it is the numerical data stored in the var with numA */
+            document.getElementById("paragraph8").innerHTML = (numA + numB);                            /* we can concatenate the two val's stored in numA and numB (7 + 10) so then the answer to that math equation will be displayed on the web page = 17 */
+            document.getElementById("paragraph9").innerHTML = (numA - numB);                            /* subtraction */
+            document.getElementById("paragraph10").innerHTML = (numA * numB);                           /* multiplication */
+            document.getElementById("paragraph11").innerHTML = (numA / numB);                           /* division */
+
+            /* to incorp both text & number var's in the same line */
+            document.getElementById("paragraph12").innerHTML = ("The answer is:" + numA * numB);                /* simply put the text in "quatation marks"  followed by the concatenating + and then the formula */
+            document.getElementById("paragraph12").innerHTML = (numA + " x " + numB + " = " + numA * numB);     /* we can add text in btwn the equations, but + always means concatenate so it concatenates the text with the numbers (note the space before & after the text symbols). so it should display: 7 x 10 = 70 */
+
+
+        </script>                                                                                       
+    </body>                                                                                    
+</html>
