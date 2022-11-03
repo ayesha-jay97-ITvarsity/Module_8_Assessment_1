@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "style.css">        <!-- link to stylesheet -->
+    </head>
+
+    <body>
+        <p> Welcome. Please login. </p>
+
+        <!-- create basic form-->
+        <form>
+            <label for = "usernameInput">Username:</label>                    <!-- first item on form to be filled in is label for the username input-->
+                <input type = "text" id = "usernameInput">                    <!-- specify the input type & give an id -->
+
+                <br>
+
+            <label for = "passwordInput">Password:</label>                    <!-- second item on form to be filled in is label for the username password-->
+                <input type = "password" id = "passwordInput">                <!-- specify the input type & give an id -->
+
+            <p id = "message"></p>                                            <!-- the message that apprs after the login form has been filled in & submitted-->
+
+            <br><br>
+
+            <a href = "#" onclick = "verifyUser()">Log in</a>                   <!-- we specify that when the user clicks on this login link, the verifyUser func created below will be applied -->
+        </form>
+
+        <script>
+            function verifyUser(){                                                      /* create func */
+                var username = document.getElementById("usernameInput").value;          /* we speci the input type to be a value. whenever we use input boxes, we specify val must be filled in */
+                var password = document.getElementById("passwordInput").value;          /* we created 2 var's in which the value will be whatever the user typed in as an input i.e. we captured the user's input into 2 var's */
+            
+                checkUserCreds(username, password);                                     /* call func creat'd below inside the func verifyUser w. input param's that were saved as var's (username & password) i.o.t. check if input matches stored data i.e. apply verify func created below to input data from func above*/
+            }
+
+            /* now we need to create a func that checks wheth the input'd val's above corresp w. the val's stored in the db's system */
+            function checkUserCreds(username, password) {                                           /* this func will receive the 2 input'd var's & check it w. the stored data */
+                var systemUsername = "Bond";                                                        /* we create the 2 var's supposedly stored in the system */1
+                var systemPassword  = "007";                                                        /* in real life, we won't be creating these var's, but we'll receive the info from a db somewhere */
+            
+                if(username == systemUsername && password == systemPassword){                               /* we specif the conditions that if the input'd username and passwords matches the system username & password info, then ... && is how vscode recog's "and" statements. */
+                    document.getElementById("message").innerHTML = "Correct. Logging you in...";            /* if the abovement'd matches, then this message will pop up */
+                }
+                else {
+                    document.getElementById("message").innerHTML = "Username or passsword are incorrect.";  /* message that apprs if data does not match the data stored in the d system */
+                }
+            }
+
+        </script>
+
+    </body>
+</html>
