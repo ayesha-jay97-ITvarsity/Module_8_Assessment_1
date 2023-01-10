@@ -2,34 +2,40 @@
 <html>
     <head>
         <link rel = "stylesheet" type = "text/css" href = "style.css">        <!-- link to stylesheet -->
+
+         <!-- link copied from Bootstrap website -->
+         <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity = "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin = "anonymous">
     </head>
 
     <body>
         <p> Welcome. Please login. </p>
 
         <!-- create basic form-->
-        <form>
-            <label for = "usernameInput">Username:</label>                    <!-- first item on form to be filled in is label for the username input-->
-                <input type = "text" id = "usernameInput">                    <!-- specify the input type & give an id -->
+        <form style = "width: 90%;  margin-left: 3.5rem;">
+            <div class = "form-group">
+              <label for = "usernameInput">Username</label>                                                     <!-- first item on form to be filled in is label for the username input-->
+              <input type = "text" class = "form-control" id = "usernameInput" placeholder = "Enter username">  <!-- specify the input type & give an id -->
+            </div>
 
-                <br>
+            <div class = "form-group">
+              <label for = "passwordInput">Password</label>                                                     <!-- second item on form to be filled in is label for the username password-->
+              <input type = "password" class = "form-control" id = "passwordInput" placeholder = "Password">    <!-- specify the input type & give an id -->
+            </div>
+            
+            <p id = "message"></p>                                                                              <!-- the message that apprs after the login form has been filled in & submitted-->
 
-            <label for = "passwordInput">Password:</label>                    <!-- second item on form to be filled in is label for the username password-->
-                <input type = "password" id = "passwordInput">                <!-- specify the input type & give an id -->
+            <button type = "submit" class = "btn btn-dark" >
+                <a href = "#" onclick = "verifyUser()" style = "color: white;">Log in</a>                     <!-- we specify that when the user clicks on this login link, the verifyUser func created below will be applied -->
+            </button>
 
-            <p id = "message"></p>                                            <!-- the message that apprs after the login form has been filled in & submitted-->
-
-            <br><br>
-
-            <a href = "#" onclick = "verifyUser()">Log in</a>                   <!-- we specify that when the user clicks on this login link, the verifyUser func created below will be applied -->
-        </form>
+          </form>
 
         <script>
-            function verifyUser(){                                                      /* create func */
-                var username = document.getElementById("usernameInput").value;          /* we speci the input type to be a value. whenever we use input boxes, we specify val must be filled in */
-                var password = document.getElementById("passwordInput").value;          /* we created 2 var's in which the value will be whatever the user typed in as an input i.e. we captured the user's input into 2 var's */
+            function verifyUser(){                                                                              /* create func */
+                var username = document.getElementById("usernameInput").value;                                  /* we speci the input type to be a value. whenever we use input boxes, we specify val must be filled in */
+                var password = document.getElementById("passwordInput").value;                                  /* we created 2 var's in which the value will be whatever the user typed in as an input i.e. we captured the user's input into 2 var's */
             
-                checkUserCreds(username, password);                                     /* call func creat'd below inside the func verifyUser w. input param's that were saved as var's (username & password) i.o.t. check if input matches stored data i.e. apply verify func created below to input data from func above*/
+                checkUserCreds(username, password);                                                             /* call func creat'd below inside the func verifyUser w. input param's that were saved as var's (username & password) i.o.t. check if input matches stored data i.e. apply verify func created below to input data from func above*/
             }
 
             /* now we need to create a func that checks wheth the input'd val's above corresp w. the val's stored in the db's system */
